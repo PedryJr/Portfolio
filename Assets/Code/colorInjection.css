@@ -1,0 +1,23 @@
+:is(p, h1, h2, h3, h4, h5, h6, a) {
+    color: #EEEBDD;
+}
+
+:is(.navbar) {
+    background-color: rgb(109, 41, 50);
+}
+
+:is(.navbar a:hover, .header) {
+    background-color: rgb(86, 28, 36);
+}
+
+:is(.side) {
+    background-color: rgb(50, 44, 43);
+}
+
+:is(.main) {
+    background-color: rgb(40, 35, 33);
+}
+
+:is(body) {
+    background-color: rgb(20, 17, 15);
+}

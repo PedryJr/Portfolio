@@ -1,3 +1,8 @@
-:is(p, h1, h2, h3, h4, h5, h6){
-    color: red;
+:is(p, h1, h2, h3, h4, h5, h6, a) {
+    font-family: Quantico;
+}
+
+@font-face {
+    font-family: 'Quantico', sans-serif;
+    src: url(Assets/Fonts/Quantico-Bold.ttf);
 }
