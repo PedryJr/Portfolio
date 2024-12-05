@@ -44,7 +44,6 @@ body {
         height: 0px;
         margin: 0px;
         padding: 0px;
-        color: white;
         height: 5vh;
         width: calc(100% / 4);
         text-decoration: blink;
@@ -76,6 +75,7 @@ body {
     flex: 25%;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 20px;
 }
 
 .main {
@@ -83,6 +83,7 @@ body {
     background-color: #322C2B;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 20px;
     overflow-y: auto;
 }
 
