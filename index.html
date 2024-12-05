@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page Title</title>
+    <title>Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Assets/Code/style.css">
     <link rel="stylesheet" href="Assets/Code/fontInjection.css">
     <link rel="stylesheet" href="Assets/Code/colorInjection.css">
 </head>
-<body>
+<body onload="Start();">
 
     <div class="header">
-        <h1 class="titleName">Pedry</h1>
+        <h1 class="titleName">Emil Dahl-Hansen</h1>
+        <div class="slider" id="slid"></div>
     </div>
 
     <div class="navbar">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
-        <a href="#">Link</a>
+        <a href="#" id="page1L">Me</a>
+        <a href="#" id="page2L">Code</a>
+        <a href="#" id="page3L">Projects</a>
+        <a href="#" id="page4L">Tools</a>
     </div>
 
 
     <div class="row">
         <div class="side">
             <h2>About Me</h2>
-            <h5>Photo of me:</h5>
-            <img src="Assets/Images/Battlesquares.png" class="centered-image" style="height:200px;">
-            <p>Some text that is shorter but explains the context.</p>
-            <h3>More Text</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <img src="Assets/Images/Battlesquares.png" class="centered-image" style="height:60px;"><br>
-            <img src="Assets/Images/Battlesquares.png" class="centered-image" style="height:60px;"><br>
-            <img src="Assets/Images/Battlesquares.png" class="centered-image" style="height:60px;">
+            <img src="Assets/Images/MeIcon.png" class="centered-image" style="height:200px;">
+            <p>Software programmer, specialized in game development.</p>
+            <h3>Contacts:</h3>
+            <img src="Assets/Images/Mail.png" class="centered-image" style="height:60px;">
+            <img src="Assets/Images/Github.png" class="centered-image" style="height:60px;">
+            <img src="Assets/Images/Discord.png" class="centered-image" style="height:60px;">
+            <p>emil.dahl580@gmail.com</p>
+            <p>https://github.com/PedryJr</p>
+            <p>pedry</p>
         </div>
 
 
@@ -50,7 +52,7 @@
             <p>Some more text that is very very long for some reason, explaining the above context in more detail for some reason.</p>
         </div>
     </div>
-
+    <script src="Assets/Code/script.js"></script>
 </body>
 </html>
 
