@@ -1,8 +1,29 @@
-:is(p, h1, h2, h3, h4, h5, h6, a) {
-    font-family: Quantico;
+p, h1, h2, h3, h4, h5, h6, a {
+    font-family: "Quantico", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
-@font-face {
-    font-family: 'Quantico', sans-serif;
-    src: url(Assets/Fonts/Quantico-Bold.ttf);
+.quantico-regular {
+    font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.quantico-bold {
+    font-family: "Quantico", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.quantico-regular-italic {
+    font-family: "Quantico", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.quantico-bold-italic {
+    font-family: "Quantico", serif;
+    font-weight: 700;
+    font-style: italic;
 }
