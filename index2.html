@@ -32,16 +32,16 @@
             <h1>Content</h1>
             <h2>1. My game engine</h2>
             <h2>2. Custom datatype using bitwise</h2>
-            <h2>3. Multithreading with unity jobs</h2>
+            <h2>3. Multithreading with Unity jobs</h2>
         </div>
 
 
         <div class="main">
-            <h1 style="font-size: 60px;">My game engine</h1>
+            <h1>My game engine</h1>
             <h2>
                 My engine uses a component system, similar to Unity.<br>
                 To the left is a general overview in pseudo code of how the components work, and how the engine handles them.<br>
-                To the right is a code snippet from the front end game class, showing off a very basic example where I spawn 1000 objects, Add a render component to the objects, then despawn them one by one in the Game Update loop.<br>
+                To the right is a code snippet from the front end game class, showing off a very basic example where I spawn 1000 objects, add a render component to the objects, then despawn them one by one in the Game Update loop.<br>
             </h2>
             <img src="Assets/Images/Egnine Basic Flowchart.png" class="centered-image" style="height:600px;">
             <img src="Assets/Images/Egnine Front End.png" class="centered-image" style="height:600px;"><br>
@@ -51,12 +51,12 @@
             </h2>
 
             <br><br><br>
-            <h1 style="font-size: 60px;">Custom datatype using bit manipulation</h1>
+            <h1>Custom datatype using bit manipulation</h1>
             <h2>
                 Picture this very specific and inconvinient problem.<br>
                 You want to create an editor with a 3 dimentional grid system, each cell can have 2 states, on or off.<br>
                 You want to allow players to use this to customize something they will be using in an online game.<br>
-                My first idea was to just convert the grid to an array of boolean values, wich works just fine, until you realize that loading the grid does NOT scale when other players have to load all the cells.<br><br>
+                My first idea was to just convert the grid to an array of boolean values, which works just fine, until you realize that loading the grid does NOT scale when other players have to load all the cells.<br><br>
 
                 This example is a classical networking problem, you want to avoid sending alot of data over the network in a game if you can avoid it.<br>
                 To make this much more scalable, we can introduce something called bit manipulation.<br>
@@ -71,15 +71,15 @@
 
             </h2>
             <br><br><br>
-            <h1 style="font-size: 60px;">Multithreading with unity jobs</h1>
+            <h1>Multithreading with Unity jobs</h1>
             <h2>
                 If you have gotten far enough into programming, you might have seen the topic of multithreading discussed, and most likely seen alot of pessimism around the topic.<br>
-                This is due to how multithreading on our processors have a huge flaw, that being unsafe data acess.<br>
+                This is due to how multithreading on our processors have a huge flaw, that being unsafe data access.<br>
                 Reading or Writing data to a piece of memory is not safe if that data is being operated on by another thread/process.<br>
                 The solution to this problem is knowing how to dispatch a thread, and where that thread will be working with memory before the dispatch, that way you can allocate threads.<br>
-                to separate pieces of memory and you wont have to worry about operations working on the same memory.<br><br>
+                To separate pieces of memory and you won't have to worry about operations working on the same memory.<br><br>
 
-                This is where the "Job system" in Unity comes in, It is structured specifically for this purpose, segmenting memory into batches thats operated on by different threads.<br>
+                This is where the "Job system" in Unity comes in, It is structured specifically for this purpose, segmenting memory into batches that's operated on by different threads.<br>
                 The example below is how I used the "Job System" to optimize a 2d grid editor, allowing me to add animations to the grid when editing on it.<br><br>
 
                 First we need to prepare the fields that will be used, again, we need to know what data is being modified before we even modify it.<br>
@@ -90,7 +90,7 @@
                 Now that we have declared what data we need, we have to initialize the data before we can work on it.<br>
                 <img src="Assets/Images/Awake.png" class="centered-image" style="height:700px;"><br><br>
 
-                Then we dispatch the data to the unity job system.<br>
+                Then we dispatch the data to the Unity job system.<br>
                 Unity uses its own Types and works alot for us in the backend here, we only have to pass along the references to the data we want to work on.<br>
                 We also have to declare how large the batches should be, aka how many array elements each thread should iterate on at a time.<br>
                 When all setup is complete, we wait for the job/multithreaded operation to complete, then we are free to use the data again.<br>
