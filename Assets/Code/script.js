@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (link.id == "page1L") {
                 slider.style.backgroundImage = "url('Assets/Images/MeIcon.png')";
             } else if (link.id == "page2L") {
-                slider.style.backgroundImage = "url('Assets/Images/CodeIcon.PNG')";
+                slider.style.backgroundImage = "url('Assets/Images/CodeIcon.png')";
             } else if (link.id == "page3L") {
                 slider.style.backgroundImage = "url('Assets/Images/Battlesquares.png')";
             } else if (link.id == "page4L") {
