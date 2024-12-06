@@ -66,27 +66,32 @@ body {
         }
 
 .row {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     height: 80vh;
+
 }
 
 .side {
-    flex: 25%;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.main {
-    flex: 75%;
-    background-color: #322C2B;
+    width: 25%;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+.main {
+    width: 75%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 .footer {

@@ -28,22 +28,82 @@
     <div class="row">
         <div class="side">
             <h1>Code showcase</h1>
-            <h2>Code snippets progressing from new to old.</h2><br>
+            <h2>Both pseudo and raw code, showcasing what I have done under the hood to solve problems and create systems</h2><br>
             <h1>Content</h1>
-            <h2>1. Entity component system</h2>
-            <h2>2. Datatype using bit Manipulation</h2>
-            <h2>3. Byte subdivision</h2>
-            <h2>4. Multithreading with unity jobs</h2>
+            <h2>1. My game engine</h2>
+            <h2>2. Custom datatype using bitwise</h2>
+            <h2>3. Multithreading with unity jobs</h2>
         </div>
 
 
         <div class="main">
-            <h1 style="font-size: 60px;">Entity component system</h1>
+            <h1 style="font-size: 60px;">My game engine</h1>
+            <h2>
+                My engine uses a component system, similar to Unity.<br>
+                To the left is a general overview in pseudo code of how the components work, and how the engine handles them.<br>
+                To the right is a code snippet from the front end game class, showing off a very basic example where I spawn 1000 objects, Add a render component to the objects, then despawn them one by one in the Game Update loop.<br>
+            </h2>
+            <img src="Assets/Images/Egnine Basic Flowchart.png" class="centered-image" style="height:600px;">
+            <img src="Assets/Images/Egnine Front End.png" class="centered-image" style="height:600px;"><br>
+            <h2>
+                Everything from the input system, to the use of OpenTK - OpenGL bindings is handled by me, no external libraries, except ones that allow me to read PNG and FBX files so I can read colors, vertices and normals to store them as arrays, as well as acess to OpenGL<br>
+                (For a visual display, go to the Projects tab)
+            </h2>
+
+            <br><br><br>
+            <h1 style="font-size: 60px;">Custom datatype using bit manipulation</h1>
+            <h2>
+                Picture this very specific and inconvinient problem.<br>
+                You want to create an editor with a 3 dimentional grid system, each cell can have 2 states, on or off.<br>
+                You want to allow players to use this to customize something they will be using in an online game.<br>
+                My first idea was to just convert the grid to an array of boolean values, wich works just fine, until you realize that loading the grid does NOT scale when other players have to load all the cells.<br><br>
+
+                This example is a classical networking problem, you want to avoid sending alot of data over the network in a game if you can avoid it.<br>
+                To make this much more scalable, we can introduce something called bit manipulation.<br>
+                Each cell only has 2 states, we can call this on or off, and store each cell in a single bit, allowing us to store 8 cells in a single byte.<br>
+
+                <img src="Assets/Images/Bitmanip.png" class="centered-image" style="height:800px;"><br>
+
+                I added this function to a helper class, and used it to pack the grid into a byte array where the bits represent the cells.<br>
+                The first function is responsible for packaging all the cells into a byte array.<br>
+                The second function is responsible for unpacking all the cells from the byte array, converting the cells back to a bool array for ease of use later on.<br>
+                (For a visual display, go to the Projects tab)<br>
+
+            </h2>
+            <br><br><br>
+            <h1 style="font-size: 60px;">Multithreading with unity jobs</h1>
+            <h2>
+                If you have gotten far enough into programming, you might have seen the topic of multithreading discussed, and most likely seen alot of pessimism around the topic.<br>
+                This is due to how multithreading on our processors have a huge flaw, that being unsafe data acess.<br>
+                Reading or Writing data to a piece of memory is not safe if that data is being operated on by another thread/process.<br>
+                The solution to this problem is knowing how to dispatch a thread, and where that thread will be working with memory before the dispatch, that way you can allocate threads.<br>
+                to separate pieces of memory and you wont have to worry about operations working on the same memory.<br><br>
+
+                This is where the "Job system" in Unity comes in, It is structured specifically for this purpose, segmenting memory into batches thats operated on by different threads.<br>
+                The example below is how I used the "Job System" to optimize a 2d grid editor, allowing me to add animations to the grid when editing on it.<br><br>
+
+                First we need to prepare the fields that will be used, again, we need to know what data is being modified before we even modify it.<br>
+                This is why everything is based on a data oriented structure, with arrays containing the data.<br>
+                <img src="Assets/Images/Fields.png" class="centered-image" style="height:700px;">
+                <img src="Assets/Images/Struct.png" class="centered-image" style="height:700px;"><br><br>
+
+                Now that we have declared what data we need, we have to initialize the data before we can work on it.<br>
+                <img src="Assets/Images/Awake.png" class="centered-image" style="height:700px;"><br><br>
+
+                Then we dispatch the data to the unity job system.<br>
+                Unity uses its own Types and works alot for us in the backend here, we only have to pass along the references to the data we want to work on.<br>
+                We also have to declare how large the batches should be, aka how many array elements each thread should iterate on at a time.<br>
+                When all setup is complete, we wait for the job/multithreaded operation to complete, then we are free to use the data again.<br>
+                <img src="Assets/Images/Update.png" class="centered-image" style="height:900px;"><br><br>
+
+                The execution function that runs on each element of the collective arrays looks like this.<br>
+                <img src="Assets/Images/Execute.png" class="centered-image" style="height:900px;"><br><br>
+                (For a visual display, go to the Projects tab)<br>
+
+            </h2>
+            <br><br><br>
 
             <video src="Assets/Videos/Template.mp4" typeof="mp4" controls style="height:500px"></video><br>
-
-            <h1 style="font-size: 60px;">Datatype using bit Manipulation</h1>
-            <img src="Assets/Images/MeIcon.png" class="centered-image" style="height:200px;">
         </div>
     </div>
     <script src="Assets/Code/script.js"></script>
